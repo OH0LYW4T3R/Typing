@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typing Beat</title>
+    <link rel="shortcut icon" href="./icon/text-box.png" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <script src="js/index.js"></script>
+  </head>
+  <body>
+    <div id="background">
+      <div id="logo">
+        <h1>Typing Beat</h1>
+      </div>
+      <div id="workspace">
+        <div id="indicator">
+          <div id="speed">
+            <span id="sidcr">SPEED</span>
+            <span id="speedcount">560</span>
+          </div>
+          <div id="record">
+            <span id="ridcr">RECORD</span>
+          </div>
+          <div id="accuracy">
+            <span id="aidcr">ACCURACY</span>
+            <span id="accuracycount">100%</span>
+          </div>
+        </div>
+        <div id="modebox">
+          <div id="languagemode">
+            <img src="./icon/language-icon2.png" alt="language-icon" />
+            <!--All toggle in modebox switch (left : 3px, right 42px)-->
+            <div id="languagetoggle">
+              <div id="languagebutton"></div>
+              <!--Korea (left : 14px) English (left : 8px)-->
+              <p id="languagemodeindicator">KOREA</p>
+            </div>
+          </div>
+          <div id="textmode">
+            <img src="./icon/text-icon.png" alt="text-icon" />
+            <div id="texttoggle">
+              <div id="textbutton"></div>
+              <!-- SENTENCE (left : 2px) PARAGRAPH (left : -2px)-->
+              <span id="textmodeindicator">SENTENCE</span>
+            </div>
+          </div>
+          <div id="settingmode">
+            <img src="./icon/setting-icon.png" alt="setting-icon" />
+            <span id="left">◀</span>
+            <span id="right">▶</span>
+            <!--10 이상일 경우 left : 44%-->
+            <span id="repeatcount">5</span>
+            <span id="settingmodeindicator">REPEAT</span>
+          </div>
+        </div>
+        <div id="typingspace">
+          <div id="presenttext">
+            <span id="ptext">테스트 문구입니다.</span>
+          </div>
+          <input type="text" name="typing" id="typing" autofocus />
+          <div id="nexttext">
+            <span id="next">NEXT</span>
+            <span id="ntext">테스트 문구입니다.</span>
+          </div>
+        </div>
+      </div>
+      <div id="modetoggle">
+        <div id="button"></div>
+        <div id="indicator">
+          <span>LIGHT</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

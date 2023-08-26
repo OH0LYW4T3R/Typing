@@ -1,0 +1,455 @@
+/*google font*/
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Dosis:wght@500&family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Dosis:wght@500&family=Maven+Pro&family=Pacifico&display=swap");
+/*google font*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#background {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(230, 223, 188);
+  position: relative;
+}
+
+/*logo*/
+#logo {
+  position: absolute;
+  width: 300px;
+  height: 100px;
+  top: 24vh;
+  left: 15vw;
+}
+
+#logo > h1 {
+  font-family: "Pacifico", cursive !important;
+  line-height: 90px;
+  color: rgb(116, 105, 83);
+  font-size: 25pt;
+}
+/*logo*/
+
+/*Workspace*/
+#workspace {
+  width: 70vw;
+  height: 50vh;
+  position: absolute;
+  top: 25vh;
+  bottom: 25vh;
+  left: 15vw;
+  right: 15vw;
+}
+
+#workspace > #modebox > div {
+  width: 120px;
+  height: 90px;
+  background-color: rgb(158, 144, 114);
+  position: absolute;
+  border-radius: 20px;
+  bottom: 7vh;
+  z-index: 1;
+}
+
+#workspace > #modebox > div > img {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 5px;
+  filter: invert(95%) sepia(3%) saturate(2305%) hue-rotate(7deg) brightness(95%)
+    contrast(92%);
+  z-index: 10;
+}
+
+#workspace > #modebox > #languagemode > #languagetoggle {
+  position: absolute;
+  width: 70px;
+  height: 29.5px;
+  background-color: rgb(230, 223, 188);
+  z-index: 9;
+  left: 25px;
+  top: 14.5px;
+  border-radius: 15px;
+}
+
+#workspace > #modebox > #languagemode > #languagetoggle > #languagebutton {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: rgb(158, 144, 114);
+  top: 2.5px;
+  left: 3px;
+  transition: left 0.3s ease;
+}
+
+#workspace > #modebox > #textmode > #texttoggle {
+  position: absolute;
+  width: 70px;
+  height: 29.5px;
+  background-color: rgb(230, 223, 188);
+  z-index: 9;
+  left: 25px;
+  top: 14.5px;
+  border-radius: 15px;
+}
+
+#workspace > #modebox > #textmode > #texttoggle > #textbutton {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: rgb(158, 144, 114);
+  top: 2.5px;
+  left: 3px;
+  transition: left 0.3s ease;
+}
+
+#workspace > #modebox > div > #languagetoggle > #languagemodeindicator {
+  color: rgb(230, 223, 188);
+  font-size: 10pt;
+  font-family: "Maven Pro", sans-serif;
+  font-weight: bold;
+  position: absolute;
+  top: 32px;
+}
+
+#workspace > #modebox > div > #texttoggle > #textmodeindicator {
+  color: rgb(230, 223, 188);
+  font-size: 10pt;
+  font-family: "Maven Pro", sans-serif;
+  font-weight: bold;
+  position: absolute;
+  top: 32px;
+}
+
+#workspace > #modebox > div > #settingmodeindicator {
+  color: rgb(230, 223, 188);
+  font-size: 10pt;
+  font-family: "Maven Pro", sans-serif;
+  font-weight: bold;
+  position: absolute;
+}
+
+/*Language Mode*/
+
+#languagemode:hover {
+  animation-name: language;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes language {
+  from {
+    bottom: 7vh;
+  }
+  to {
+    bottom: 0px;
+  }
+}
+
+#languagemode > img {
+  left: 50px;
+}
+
+#languagemode > #languagetoggle > #languagemodeindicator {
+  left: 14px;
+}
+
+/*Language Mode*/
+
+/*Text Mode*/
+#workspace > #modebox > #textmode {
+  left: 150px;
+}
+
+#textmode:hover {
+  animation-name: text;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes text {
+  from {
+    bottom: 7vh;
+  }
+  to {
+    bottom: 0px;
+  }
+}
+
+#textmode > img {
+  left: 50px;
+}
+
+#textmode > #texttoggle > #textmodeindicator {
+  left: 2px;
+}
+/*Text Mode*/
+
+/*Setting Mode*/
+#workspace > #modebox > #settingmode {
+  width: 240px;
+  right: 0px;
+}
+
+#settingmode:hover {
+  animation-name: setting;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes setting {
+  from {
+    bottom: 7vh;
+  }
+  to {
+    bottom: 0px;
+  }
+}
+
+#settingmode > img {
+  left: 110px;
+}
+
+#settingmode > #settingmodeindicator {
+  color: rgb(230, 223, 188);
+  font-size: 10pt;
+  font-family: "Maven Pro", sans-serif;
+  font-weight: bold;
+  position: absolute;
+  left: 40%;
+  top: 45px;
+}
+
+#settingmode > #left {
+  color: rgb(230, 223, 188);
+  font-size: 15pt;
+  font-family: "Maven Pro", sans-serif;
+  font-weight: bold;
+  position: absolute;
+  left: 20%;
+  top: 12px;
+}
+
+#settingmode > #right {
+  color: rgb(230, 223, 188);
+  font-size: 15pt;
+  font-family: "Maven Pro", sans-serif;
+  font-weight: bold;
+  position: absolute;
+  right: 20%;
+  top: 12px;
+}
+
+#settingmode > #repeatcount {
+  color: rgb(230, 223, 188);
+  font-size: 20pt;
+  font-family: "Maven Pro", sans-serif;
+  font-weight: bold;
+  position: absolute;
+  left: 47%;
+  top: 10px;
+}
+/*Setting Mode*/
+
+/*Indicator*/
+#workspace > #indicator {
+  width: 300px;
+  height: 90px;
+  background-color: rgb(158, 144, 114);
+  position: absolute;
+  border-radius: 10px;
+  left: 27vw;
+  right: 27vw;
+  top: 0px;
+}
+
+#indicator > div > span {
+  z-index: 10;
+  color: rgb(230, 223, 188);
+}
+
+#workspace > #indicator > #speed {
+  width: 200px;
+  height: 60px;
+  border-bottom: 1px solid rgb(230, 223, 188);
+  border-right: 1px solid rgb(230, 223, 188);
+  float: left;
+}
+
+#speed > #sidcr {
+  position: absolute;
+  top: 4px;
+  left: 75px;
+}
+
+#speed > #speedcount {
+  position: absolute;
+  bottom: 35px;
+  left: 74.5px;
+  font-size: 20pt;
+}
+
+#workspace > #indicator > #record {
+  width: 100px;
+  height: 90px;
+  border-left: 1px solid rgb(230, 223, 188);
+  float: right;
+}
+
+#record > #ridcr {
+  position: absolute;
+  right: 22px;
+  top: 5px;
+  font-size: 11pt;
+}
+
+#workspace > #indicator > #accuracy {
+  width: 200px;
+  height: 30px;
+  border-top: 1px solid rgb(230, 223, 188);
+  border-right: 1px solid rgb(230, 223, 188);
+  float: left;
+}
+
+#accuracy > span {
+  font-size: 10pt;
+  position: absolute;
+  left: 10px;
+  bottom: 8px;
+}
+
+#accuracy > #accuracycount {
+  position: absolute;
+  font-size: 13pt;
+  left: 115px;
+  bottom: 6px;
+}
+
+/*Indicator*/
+
+/*Typingspace*/
+#typingspace {
+  width: 70vw;
+  height: 30vh;
+  position: absolute;
+  top: 10vh;
+  bottom: 10vh;
+  background-color: rgb(158, 144, 114);
+  border-radius: 20px;
+  z-index: 70;
+}
+
+#typingspace div {
+  width: 60vw;
+  height: 3vh;
+
+  position: absolute;
+  left: 5vw;
+  right: 5vw;
+}
+
+#typingspace div > span {
+  font-size: 13.5pt;
+  color: white;
+  font-weight: bold;
+}
+
+#typingspace > #presenttext {
+  top: 10vh;
+}
+
+#typingspace > input {
+  position: absolute;
+  width: 60vw;
+  height: 3vh;
+  font-size: 13.5pt;
+  color: rgb(230, 223, 188);
+  border: none;
+  left: 5vw;
+  right: 5vw;
+  top: 13.5vh;
+  bottom: 13.5vh;
+  background-color: transparent;
+
+  border-bottom: 3px solid rgb(230, 223, 188);
+  font-weight: bold;
+  caret-color: rgb(230, 223, 188);
+}
+
+#typingspace > input:focus {
+  outline: none;
+}
+
+#typingspace > #nexttext {
+  bottom: 7vh;
+}
+
+#typingspace > #nexttext span {
+  opacity: 0.5;
+  font-weight: 500;
+}
+
+#typingspace > #nexttext > #next {
+  font-size: 13pt;
+}
+/*Typingspace*/
+/*Workspace*/
+
+/*Modetoggle*/
+#modetoggle {
+  position: absolute;
+  width: 100px;
+  height: 40px;
+  background-color: rgb(158, 144, 114);
+  right: 15vw;
+  bottom: 30px;
+  border-radius: 40px;
+}
+
+#button {
+  width: 30px;
+  height: 30px;
+  background-color: rgb(230, 223, 188);
+  position: absolute;
+  border-radius: 100%;
+  top: 5px;
+  left: 5px;
+}
+
+#languagebutton {
+  width: 30px;
+  height: 30px;
+  background-color: rgb(230, 223, 188);
+  position: absolute;
+  border-radius: 100%;
+  top: 5px;
+  /* left: 5px; */
+}
+
+#textbutton {
+  width: 30px;
+  height: 30px;
+  background-color: rgb(230, 223, 188);
+  position: absolute;
+  border-radius: 100%;
+  top: 5px;
+  left: 5px;
+}
+
+#indicator {
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 20px;
+  left: 25px;
+  top: 40px;
+  text-align: center;
+  font-family: "Maven Pro", sans-serif;
+  font-weight: bold;
+  color: rgb(158, 144, 114);
+  z-index: 20;
+}
+/*Modetoggle*/
