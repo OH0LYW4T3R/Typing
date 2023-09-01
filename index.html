@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Typing Beat</title>
+    <title>Typing School</title>
     <link rel="shortcut icon" href="./icon/text-box.png" />
     <link rel="stylesheet" href="./css/index.css" />
     <script src="js/index.js"></script>
@@ -12,16 +12,33 @@
   <body>
     <div id="background">
       <div id="logo">
-        <h1>Typing Beat</h1>
+        <h1>Typing School</h1>
       </div>
       <div id="workspace">
         <div id="indicator">
           <div id="speed">
             <span id="sidcr">SPEED</span>
-            <span id="speedcount">560</span>
+            <span id="speedcount">0</span>
           </div>
           <div id="record">
             <span id="ridcr">RECORD</span>
+            <ul id="recordcheck">
+              <li>
+                <span id="speedtext"></span><span id="accuracytext"></span>
+              </li>
+              <li style="top: 13px">
+                <span id="speedtext"></span><span id="accuracytext"></span>
+              </li>
+              <li style="top: 26px">
+                <span id="speedtext"></span><span id="accuracytext"></span>
+              </li>
+              <li style="top: 39px">
+                <span id="speedtext"></span><span id="accuracytext"></span>
+              </li>
+              <li style="top: 52px">
+                <span id="speedtext"></span><span id="accuracytext"></span>
+              </li>
+            </ul>
           </div>
           <div id="accuracy">
             <span id="aidcr">ACCURACY</span>
@@ -70,6 +87,30 @@
         <div id="button"></div>
         <div id="indicator">
           <span>LIGHT</span>
+        </div>
+      </div>
+      <div id="result">
+        <div id="resultcard">
+          <span id="title">RESULT</span>
+          <div id="maxspeed">
+            <span id="maxstitle">MAX SPEED</span>
+            <span id="maxspeedtext">516</span>
+          </div>
+          <div id="saresult">
+            <div id="sbox">
+              <span id="stitle">SPEED&nbsp;AVG</span>
+              <span id="sresulttext">479</span>
+            </div>
+            <div id="abox">
+              <span id="atitle">ACCURACY&nbsp;AVG</span>
+              <span id="aresulttext">100%</span>
+            </div>
+          </div>
+          <div id="comment">
+            <span id="commenttext">GREAT!!!!</span>
+            <span id="escape">PRESS ESC</span>
+            <img id="esc" src="icon/icons8-야후!-96.png" alt="escbutton" />
+          </div>
         </div>
       </div>
     </div>

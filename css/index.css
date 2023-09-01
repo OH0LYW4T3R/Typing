@@ -1,12 +1,17 @@
 /*google font*/
 @import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Dosis:wght@500&family=Pacifico&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Dosis:wght@500&family=Maven+Pro&family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alkatra&family=Bagel+Fat+One&family=Bitter:wght@100&family=Josefin+Sans:ital,wght@1,100&family=Kanit&family=Moirai+One&family=Noto+Sans+KR&family=Tektur&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alkatra&family=Bagel+Fat+One&family=Bitter:wght@100&family=Josefin+Sans:ital,wght@1,100&family=Kanit&family=Moirai+One&family=Noto+Sans+KR&family=Rubik+Iso&family=Tektur&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alkatra&family=Bagel+Fat+One&family=Bitter:wght@100&family=Black+Ops+One&family=Josefin+Sans:ital,wght@1,100&family=Kanit&family=Moirai+One&family=Noto+Sans+KR&family=Rubik+Iso&family=Tektur&display=swap");
 /*google font*/
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  user-select: none;
+  list-style: none;
 }
 
 #background {
@@ -83,6 +88,7 @@
   top: 2.5px;
   left: 3px;
   transition: left 0.3s ease;
+  cursor: pointer;
 }
 
 #workspace > #modebox > #textmode > #texttoggle {
@@ -104,6 +110,7 @@
   top: 2.5px;
   left: 3px;
   transition: left 0.3s ease;
+  cursor: pointer;
 }
 
 #workspace > #modebox > div > #languagetoggle > #languagemodeindicator {
@@ -192,6 +199,7 @@
 #workspace > #modebox > #settingmode {
   width: 240px;
   right: 0px;
+  user-select: none;
 }
 
 #settingmode:hover {
@@ -219,7 +227,8 @@
   font-family: "Maven Pro", sans-serif;
   font-weight: bold;
   position: absolute;
-  left: 40%;
+  left: 50%;
+  transform: translate(-50%);
   top: 45px;
 }
 
@@ -231,6 +240,8 @@
   position: absolute;
   left: 20%;
   top: 12px;
+  transition: transform 0.2s ease;
+  cursor: pointer;
 }
 
 #settingmode > #right {
@@ -241,6 +252,13 @@
   position: absolute;
   right: 20%;
   top: 12px;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+#settingmode > #right:hover,
+#left:hover {
+  transform: scale(1.4);
 }
 
 #settingmode > #repeatcount {
@@ -249,7 +267,8 @@
   font-family: "Maven Pro", sans-serif;
   font-weight: bold;
   position: absolute;
-  left: 47%;
+  left: 50%;
+  transform: translate(-50%);
   top: 10px;
 }
 /*Setting Mode*/
@@ -277,6 +296,8 @@
   border-bottom: 1px solid rgb(230, 223, 188);
   border-right: 1px solid rgb(230, 223, 188);
   float: left;
+  position: relative;
+  text-align: center;
 }
 
 #speed > #sidcr {
@@ -287,8 +308,9 @@
 
 #speed > #speedcount {
   position: absolute;
-  bottom: 35px;
-  left: 74.5px;
+  bottom: 5px;
+  left: 50%;
+  transform: translate(-50%);
   font-size: 20pt;
 }
 
@@ -304,6 +326,33 @@
   right: 22px;
   top: 5px;
   font-size: 11pt;
+}
+
+#record > #recordcheck {
+  color: rgb(230, 223, 188);
+  font-size: 8pt;
+  position: relative;
+  top: 26%;
+  line-height: 120%;
+}
+
+#record > #recordcheck > li {
+  position: relative;
+}
+
+#record > #recordcheck > li > #speedtext {
+  position: absolute;
+  z-index: 80;
+  color: rgb(230, 223, 188);
+  font-size: 8pt;
+  left: 20%;
+}
+
+#record > #recordcheck > li > #accuracytext {
+  position: absolute;
+  color: rgb(230, 223, 188);
+  font-size: 8pt;
+  left: 61%;
 }
 
 #workspace > #indicator > #accuracy {
@@ -324,7 +373,7 @@
 #accuracy > #accuracycount {
   position: absolute;
   font-size: 13pt;
-  left: 115px;
+  right: 9%;
   bottom: 6px;
 }
 
@@ -340,6 +389,7 @@
   background-color: rgb(158, 144, 114);
   border-radius: 20px;
   z-index: 70;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 #typingspace div {
@@ -361,6 +411,10 @@
   top: 10vh;
 }
 
+#typingspace > #presenttext > .wrongword {
+  color: rgb(231, 134, 127);
+}
+
 #typingspace > input {
   position: absolute;
   width: 60vw;
@@ -377,6 +431,7 @@
   border-bottom: 3px solid rgb(230, 223, 188);
   font-weight: bold;
   caret-color: rgb(230, 223, 188);
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 #typingspace > input:focus {
@@ -453,3 +508,191 @@
   z-index: 20;
 }
 /*Modetoggle*/
+
+/*result*/
+#result {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  z-index: 90;
+  background-color: rgba(100, 100, 100, 0.336);
+  display: block;
+}
+
+#resultcard {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1 !important;
+  width: 30vh;
+  height: 40vh;
+  background-color: rgb(116, 105, 83);
+  font-family: "Maven Pro", sans-serif;
+  border-radius: 30px;
+}
+
+#title {
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  transform: translate(-50%);
+  color: rgb(230, 223, 188);
+  font-size: 20pt;
+  font-weight: bolder;
+}
+
+#maxspeed {
+  position: absolute;
+  border-top: 2px solid rgb(230, 223, 188);
+  border-bottom: 2px solid rgb(230, 223, 188);
+  top: 20%;
+  width: 100%;
+  height: 20%;
+}
+
+#maxspeed > #maxstitle {
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  transform: translate(-50%);
+  color: rgb(230, 223, 188);
+}
+
+#maxspeed > #maxspeedtext {
+  position: absolute;
+  left: 50%;
+  top: 27%;
+  transform: translate(-50%);
+  color: rgb(230, 223, 188);
+  font-weight: bolder;
+  font-size: 30pt;
+}
+
+#saresult {
+  position: absolute;
+  border-bottom: 2px solid rgb(230, 223, 188);
+  top: 40%;
+  width: 100%;
+  height: 20%;
+}
+
+#saresult > #sbox {
+  position: absolute;
+  left: 0%;
+  width: 50%;
+  height: 100%;
+}
+
+#saresult > #sbox > #stitle {
+  position: absolute;
+  left: 50%;
+  top: 3%;
+  transform: translate(-50%);
+  color: rgb(230, 223, 188);
+  font-size: 10pt;
+}
+
+#saresult > #sbox > #sresulttext {
+  position: absolute;
+  left: 50%;
+  top: 27%;
+  transform: translate(-50%);
+  color: rgb(230, 223, 188);
+  font-size: 30pt;
+  font-weight: bolder;
+}
+
+#saresult > #abox {
+  position: absolute;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+}
+
+#saresult > #abox > #atitle {
+  position: absolute;
+  left: 50%;
+  top: 3%;
+  transform: translate(-50%);
+  color: rgb(230, 223, 188);
+  font-size: 10pt;
+}
+
+#saresult > #abox > #aresulttext {
+  position: absolute;
+  left: 50%;
+  top: 27%;
+  transform: translate(-50%);
+  color: rgb(230, 223, 188);
+  font-size: 30pt;
+  font-weight: bolder;
+}
+
+#comment {
+  position: absolute;
+  top: 60%;
+  width: 100%;
+  height: 40%;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+#comment > #commenttext {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%);
+  background-image: linear-gradient(
+    45deg,
+    rgb(247, 169, 169),
+    rgb(193, 236, 172),
+    rgb(156, 181, 218)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: hue 5s infinite linear;
+  font-family: "Black Ops One", cursive;
+  font-size: 45pt;
+  transform: translate(-50%) rotate(-15deg);
+}
+
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+  to {
+    -webkit-filter: hue-rotate(-360deg);
+  }
+}
+
+#comment > #escape {
+  position: absolute;
+  left: 55%;
+  font-family: "Rubik Iso", cursive;
+  transform: translate(-50%);
+  bottom: 13%;
+  background-image: linear-gradient(45deg, #1a6dff, #6dc7ff, #e6abff, #c822ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: bolder;
+}
+
+#comment > #esc {
+  position: absolute;
+  bottom: 5%;
+  left: 25%;
+  width: 40px;
+  height: 40px;
+}
+/*result*/
