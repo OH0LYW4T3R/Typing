@@ -516,7 +516,7 @@
   height: 100vh;
   z-index: 90;
   background-color: rgba(100, 100, 100, 0.336);
-  display: block;
+  display: none;
 }
 
 #resultcard {
@@ -677,7 +677,7 @@
 
 #comment > #escape {
   position: absolute;
-  left: 8vw;
+  left: 55%;
   font-family: "Rubik Iso", cursive;
   transform: translate(-50%);
   bottom: 13%;
@@ -692,7 +692,7 @@
 #comment > #esc {
   position: absolute;
   bottom: 5%;
-  left: 3.5vw;
+  left: 25%;
   width: 40px;
   height: 40px;
 }
