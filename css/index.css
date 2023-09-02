@@ -677,21 +677,22 @@
 
 #comment > #escape {
   position: absolute;
-  left: 55%;
+  left: 8vw;
   font-family: "Rubik Iso", cursive;
   transform: translate(-50%);
   bottom: 13%;
-  background-image: linear-gradient(45deg, #e6dfbc, #9e9072, #b0ac86);
+  background-image: linear-gradient(45deg, #1a6dff, #6dc7ff, #e6abff, #c822ff);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   font-weight: bolder;
+  border-bottom: 1px solid rgb(230, 223, 188);
 }
 
 #comment > #esc {
   position: absolute;
   bottom: 5%;
-  left: 25%;
+  left: 3.5vw;
   width: 40px;
   height: 40px;
 }
