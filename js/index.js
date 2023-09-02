@@ -374,6 +374,8 @@ const record = (event, recorddom, repeat, info, index) => {
   let recordValue = [];
   let recordclear = false;
 
+  console.log(index);
+  console.log(index % 5);
   record[index % 5].querySelector(
     "#speedtext"
   ).textContent = `${info[index][0]}`;
@@ -419,6 +421,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const sc = speed.querySelector("#speedcount");
   let clear;
   let enter = { ent: false };
+  let entercount = 0;
   let intervalId = {}; // add speed
   let keyObj = {
     letterKey: 0,
@@ -447,9 +450,13 @@ document.addEventListener("DOMContentLoaded", () => {
   let accuracy = 100;
   // record speed and accuracy variables
   const recordcheck = document.querySelectorAll("#recordcheck li");
-  let recordclearNrecord = {};
+  let recordclear = false;
   let recordIndex = { recidx: -1 };
   let info = [];
+  // result card variables
+  const result = document.querySelector("#result");
+  const maxNAvg = function (info) {};
+  let resultflag = false;
 
   // initailizing
   typingObj = typing_word(typingWord, languageObj.value, textObj.value);
@@ -490,34 +497,60 @@ document.addEventListener("DOMContentLoaded", () => {
         // clear section
         recordIndex.recidx++;
         sc.textContent = "0";
+        console.log(typingspace.value);
+        typingspace.value = "";
         accuracycount.textContent = "100%";
 
         // 추후 결과가 나온다면 info의 내용을 모두 지워주어야함. recidx = -1
-        if (recordIndex.recidx == repeat) {
-          recordIndex.recidx = 0;
-          info.splice(0, info.length);
-          console.log(info);
+        console.log(recordIndex.recidx);
+        if (recordIndex.recidx == repeat - 1) {
+          // 반복 횟수 만큼 다 채웠다는 소리
+
+          // max and avg
+
+          //result process
+          resultflag = true;
+          recordclear = true;
+          console.log(result.style.display);
+          result.style.display = "block";
         }
 
         if (recordIndex.recidx > 4) {
-          info[recordIndex.recidx % 5] = [
+          info[recordIndex.recidx] = [
             intervalId.speed,
             accuracy,
             recordIndex.recidx,
           ];
+
+          console.log(info);
         } else {
           info.push([intervalId.speed, accuracy, recordIndex.recidx]);
-          console.log(repeat);
+          console.log(info);
         }
       }
 
-      recordclear = record(
-        event,
-        recordcheck,
-        repeat,
-        info,
-        recordIndex.recidx
-      );
+      record(event, recordcheck, repeat, info, recordIndex.recidx);
+
+      if (resultflag) {
+        result.focus();
+        typingspace.removeAttribute("autofocus");
+        console.log(recordIndex.recidx);
+        recordIndex.recidx = 0;
+        info.splice(0, info.length);
+        console.log(info);
+        resultflag = false;
+      }
+
+      console.log(recordclear);
+    }
+
+    if (event.key === "Escape") {
+      console.log("esc");
+      if (recordclear) {
+        result.style.display = "none";
+        recordclear = false;
+        typingspace.setAttribute("autofocus");
+      }
     }
 
     if (event.key === "Backspace") {
