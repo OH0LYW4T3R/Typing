@@ -4,6 +4,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Alkatra&family=Bagel+Fat+One&family=Bitter:wght@100&family=Josefin+Sans:ital,wght@1,100&family=Kanit&family=Moirai+One&family=Noto+Sans+KR&family=Tektur&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Alkatra&family=Bagel+Fat+One&family=Bitter:wght@100&family=Josefin+Sans:ital,wght@1,100&family=Kanit&family=Moirai+One&family=Noto+Sans+KR&family=Rubik+Iso&family=Tektur&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Alkatra&family=Bagel+Fat+One&family=Bitter:wght@100&family=Black+Ops+One&family=Josefin+Sans:ital,wght@1,100&family=Kanit&family=Moirai+One&family=Noto+Sans+KR&family=Rubik+Iso&family=Tektur&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alkatra&family=Bagel+Fat+One&family=Bitter:wght@100&family=Black+Ops+One&family=Josefin+Sans:ital,wght@1,100&family=Kanit&family=Moirai+One&family=Noto+Sans+KR&family=Patua+One&family=Rubik+Iso&family=Tektur&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alkatra&family=Bagel+Fat+One&family=Bitter:wght@100&family=Black+Han+Sans&family=Black+Ops+One&family=Josefin+Sans:ital,wght@1,100&family=Kanit&family=Moirai+One&family=Nanum+Pen+Script&family=Noto+Sans+KR&family=Patua+One&family=Rubik+Iso&family=Tektur&display=swap");
 /*google font*/
 
 * {
@@ -37,6 +39,102 @@
   font-size: 25pt;
 }
 /*logo*/
+
+/*help*/
+#help {
+  position: absolute;
+  left: 40px;
+  top: 30px;
+  background-color: rgb(158, 144, 114);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transition: transform 1s, width 0.6s, height 0.6s;
+  z-index: 100;
+}
+
+#help > #footone,
+#foottwo,
+#footthree {
+  position: absolute;
+  width: 8px;
+  height: 12px;
+  background-color: rgb(158, 144, 114);
+  border-radius: 50%;
+}
+
+#help > #footone {
+  left: -1px;
+  top: -8px;
+  transform: rotate(-15deg);
+}
+
+#help > #foottwo {
+  left: 11px;
+  top: -12px;
+}
+
+#help > #footthree {
+  left: 23px;
+  top: -8px;
+  transform: rotate(15deg);
+}
+
+#help span {
+  color: rgb(233, 222, 126);
+}
+
+#help:hover {
+  left: 40px;
+  top: 30px;
+  background-color: rgb(158, 144, 114);
+  width: 250px;
+  height: 300px;
+  border-radius: 20px;
+}
+
+#help > #questionmark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Patua One", cursive;
+  color: rgb(230, 223, 188);
+}
+
+#help > #questionmark:hover {
+  display: none;
+}
+
+#help > div {
+  position: absolute;
+  left: 30px;
+  font-family: "Nanum Pen Script", cursive;
+  font-size: 14pt;
+  color: rgb(253, 253, 253);
+  display: none;
+}
+
+#help > #introduce {
+  top: 18px;
+}
+
+#help > #fhd {
+  top: 78px;
+}
+
+#help > #advise {
+  top: 138px;
+}
+
+#help > #error {
+  top: 198px;
+}
+
+#help > #play {
+  top: 258px;
+}
+/*help*/
 
 /*Workspace*/
 #workspace {
@@ -472,6 +570,8 @@
   border-radius: 100%;
   top: 5px;
   left: 5px;
+  cursor: pointer;
+  transition: left 0.3s ease;
 }
 
 #languagebutton {
@@ -517,6 +617,24 @@
   z-index: 90;
   background-color: rgba(100, 100, 100, 0.336);
   display: none;
+}
+
+#result > #click > #clickimg {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 58%;
+  top: 68%;
+  z-index: 100;
+}
+
+#result > #click > #clicktext {
+  position: absolute;
+  font-family: "Maven Pro", sans-serif;
+  color: rgb(116, 105, 83);
+  font-weight: bolder;
+  left: 57.8%;
+  top: 72%;
 }
 
 #resultcard {
@@ -652,15 +770,15 @@
   transform: translate(-50%);
   background-image: linear-gradient(
     45deg,
-    rgb(247, 169, 169),
-    rgb(193, 236, 172),
-    rgb(156, 181, 218)
+    rgb(250, 43, 43),
+    rgb(104, 250, 32),
+    rgb(38, 123, 250)
   );
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  -webkit-animation: hue 5s infinite linear;
+  -webkit-animation: hue 3s infinite linear;
   font-family: "Black Ops One", cursive;
   font-size: 45pt;
   transform: translate(-50%) rotate(-15deg);
@@ -697,3 +815,149 @@
   height: 40px;
 }
 /*result*/
+
+/*footer*/
+#develop {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%);
+  font-family: "Maven Pro", sans-serif;
+}
+
+#develop > #developer {
+  color: rgb(158, 144, 114);
+}
+
+#develop > a > img {
+  position: absolute;
+  bottom: -5px;
+  width: 30px;
+  height: 30px;
+}
+/*footer*/
+
+/*keyboard*/
+.keyboard-base {
+  max-width: 700px;
+  padding: 20px;
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(30, 15px);
+  grid-template-rows: repeat(5, 30px);
+  grid-gap: 5px;
+}
+
+.key {
+  position: relative;
+  background-color: rgb(158, 144, 114);
+  border-radius: 5px;
+  grid-column: span 2;
+  font-size: 10px;
+  text-align: center;
+  padding-top: 17px;
+  font-family: "Maven Pro", sans-serif;
+  color: rgb(230, 223, 188);
+}
+
+.Backspace {
+  grid-column: span 4;
+}
+
+.Tab {
+  grid-column: span 3;
+}
+
+.Backslash {
+  grid-column: span 3;
+}
+
+.CapsLock {
+  grid-column: span 4;
+}
+
+.Enter {
+  grid-column: span 4;
+}
+
+.ShiftRight {
+  grid-column: span 5;
+}
+
+.ShiftLeft {
+  grid-column: span 5;
+}
+
+.leftctrl {
+  grid-column: span 3;
+  background-color: rgb(230, 223, 188);
+}
+
+.rightctrl {
+  background-color: rgb(230, 223, 188);
+}
+
+.command {
+  grid-column: span 3;
+  font-size: 14px;
+  background-color: rgb(230, 223, 188);
+}
+
+.alt {
+  background-color: rgb(230, 223, 188);
+}
+
+.fn {
+  background-color: rgb(230, 223, 188);
+}
+
+.Space {
+  grid-column: span 14;
+}
+
+.keyboard-base > .key > img {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+/* .keyboard-base > .delete > img {
+  left: 23px;
+}
+
+.keyboard-base > .tab > img {
+  left: 13px;
+}
+
+.keyboard-base > .backslash > img {
+  left: 13px;
+}
+
+.keyboard-base > .capslock > img {
+  left: 23px;
+}
+
+.keyboard-base > .return > img {
+  left: 13px;
+}
+
+.keyboard-base > .leftshift > img {
+  left: 13px;
+}
+
+.keyboard-base > .rightshift > img {
+  left: 13px;
+}
+
+.keyboard-base > .space > img {
+  left: 13px;
+} */
+/*keyboard*/

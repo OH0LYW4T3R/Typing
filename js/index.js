@@ -52,6 +52,29 @@ const textChange = (event, textObj) => {
 };
 //Text Change
 
+//Mode Change
+const modeChange = (event, modeObj, modetoggle, background) => {
+  const button = event.currentTarget.querySelector("#button");
+  const text = event.currentTarget.querySelector("#indicator");
+
+  if (modeObj.value) {
+    // light
+    modeObj.value = false;
+
+    text.textContent = "DARK";
+    button.style.left = "65px";
+  } else {
+    // dark
+    modeObj.value = true;
+
+    text.textContent = "LIGHT";
+    button.style.left = "5px";
+  }
+
+  return modeObj.value;
+};
+//Mode Change
+
 //Repeat Change
 const repeatChange = (event, index) => {
   const settingmode = event.currentTarget.parentNode;
@@ -106,6 +129,7 @@ const typing_word = (object, language, text) => {
     "오늘 하루는 내일의 시작입니다.",
     "마음만을 가지고 있어서는 안된다. 반드시 실천하여야 한다.",
     "우리의 인내는 우리의 최고의 보물이다.",
+    "나비를 잡으려 하지 말고, 정원을 가꾸어야 한다.",
   ];
   //Korea_PARAGRAPH
   koreaParagraph = [
@@ -180,17 +204,13 @@ const typing_word = (object, language, text) => {
   const getRandomInt = function (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
-
-  //variable
-  // const userText = object.querySelector("#typingspace > #text");
-  // userText.addEventListener("input", function () {});
-
   const presentText = object.querySelector("#ptext");
   const nextText = object.querySelector("#ntext");
   const userText = object.querySelector("#typing");
   let selectObj = []; // korea or english
   let index = 0; // size
   let choiceIndex = 0; // random index
+  let choicelanguage = 1;
 
   userText.value = "";
 
@@ -232,7 +252,12 @@ const typing_word = (object, language, text) => {
   else nextText.textContent = selectObj[choiceIndex + 1];
 
   //return [...selectObj, index, choiceIndex];
-  return { select: selectObj, index: index, choiceIndex: choiceIndex };
+  return {
+    select: selectObj,
+    index: index,
+    choiceIndex: choiceIndex,
+    language: language,
+  };
 };
 //Typing Word
 
@@ -371,8 +396,8 @@ const AccuracyNCheck = (event, typingObj, accuracycount, count, ptext) => {
 const record = (event, recorddom, repeat, info, index) => {
   const record = recorddom;
   let recordContent = [];
-  let recordValue = [];
-  let recordclear = false;
+  // let recordValue = [];
+  // let recordclear = false;
 
   console.log(index);
   console.log(index % 5);
@@ -394,8 +419,183 @@ const record = (event, recorddom, repeat, info, index) => {
   //   recordclear = true;
   // }
 
-  return { rc: recordclear, rv: recordValue };
+  // return { rc: recordclear, rv: recordValue };
 };
+
+// Result Setting
+const resultSetting = (
+  event,
+  info,
+  typingObj,
+  maxspeed,
+  sbox,
+  abox,
+  commenttext
+) => {
+  console.log(info, typingObj, maxspeed, sbox, abox, commenttext);
+  const maxspeedtext = maxspeed.querySelector("#maxspeedtext");
+  const sresulttext = sbox.querySelector("#sresulttext");
+  const aresulttext = abox.querySelector("#aresulttext");
+  let speeddata = [];
+  let maxspd;
+  let avgspd = 0;
+  let avgacr = 0;
+  let color;
+  let moving;
+
+  console.log(maxspeedtext, sresulttext);
+
+  for (let i = 0; i < info.length; i++) {
+    speeddata.push(info[i][0]);
+
+    avgspd += info[i][0];
+    avgacr += info[i][1];
+  }
+
+  maxspd = Math.max(...speeddata);
+  avgspd = Math.round(avgspd / info.length);
+  avgacr = Math.round(avgacr / info.length);
+
+  maxspeedtext.textContent = `${maxspd}`;
+  sresulttext.textContent = `${avgspd}`;
+  aresulttext.textContent = `${avgacr}%`;
+
+  console.log(commenttext);
+
+  if (typingObj.language) {
+    //korea
+    if (avgspd > 600 && avgacr > 0) {
+      commenttext.textContent = "PERPECT!!!!";
+      commenttext.style.backgroundImage =
+        "linear-gradient( 45deg, rgb(250, 43, 43), rgb(104, 250, 32), rgb(38, 123, 250));";
+    } else if (400 < avgspd && avgspd <= 600 && 80 < avgacr && avgacr <= 100) {
+      commenttext.textContent = "GREAT!!";
+      commenttext.style.backgroundImage =
+        "linear-gradient( 45deg, rgb(248, 123, 123), rgb(143, 245, 93), rgb(98, 157, 245));";
+    } else if (200 < avgspd && avgspd <= 400 && 70 < avgacr && avgacr <= 100) {
+      commenttext.textContent = "COMMON";
+      commenttext.style.backgroundImage =
+        "linear-gradient( 45deg, rgb(230, 223, 188), rgb(116, 105, 83), rgb(158, 144, 114));";
+    } else {
+      commenttext.textContent = "BAD...";
+      commenttext.style.backgroundImage =
+        "linear-gradient( 45deg, rgb(187, 187, 187), rgb(92, 92, 92), rgb(15, 15, 15));";
+    }
+  } else {
+    //english
+    if (avgspd > 400 && avgacr > 95) {
+      commenttext.textContent = "PERPECT!!!!";
+      commenttext.style.backgroundImage =
+        "linear-gradient( 45deg, rgb(250, 43, 43), rgb(104, 250, 32), rgb(38, 123, 250));";
+    } else if (250 < avgspd && avgspd <= 400 && 80 < avgacr && avgacr <= 100) {
+      commenttext.textContent = "GREAT!!";
+      commenttext.style.backgroundImage =
+        "linear-gradient( 45deg, rgb(248, 123, 123), rgb(143, 245, 93), rgb(98, 157, 245));";
+    } else if (150 < avgspd && avgspd <= 250 && 70 < avgacr && avgacr <= 100) {
+      commenttext.textContent = "COMMON";
+      commenttext.style.backgroundImage =
+        "linear-gradient( 45deg, rgb(230, 223, 188), rgb(116, 105, 83), rgb(158, 144, 114));";
+    } else {
+      commenttext.textContent = "BAD...";
+      commenttext.style.backgroundImage =
+        "linear-gradient( 45deg, rgb(187, 187, 187), rgb(92, 92, 92), rgb(15, 15, 15));";
+    }
+  }
+
+  console.log(commenttext.style.backgroundImage);
+};
+// Result Setting
+
+// Help
+const helpInfn = (event, help) => {
+  const questionmark = help.querySelector("#questionmark");
+  const helpstring = help.querySelectorAll("div");
+
+  questionmark.textContent = "";
+
+  for (let i = 0; i < helpstring.length; i++)
+    helpstring[i].style.display = "block";
+
+  return true;
+};
+
+const helpOutfn = (event, help) => {
+  const questionmark = help.querySelector("#questionmark");
+  const helpstring = help.querySelectorAll("div");
+
+  questionmark.textContent = "?";
+
+  for (let i = 0; i < helpstring.length; i++)
+    helpstring[i].style.display = "none";
+
+  return false;
+};
+// Help
+
+// keyboard effect
+const keyboardEffect = (event, keyboard, flag) => {
+  let key;
+  let img;
+  console.log(event.code, event.key);
+  console.log(keyboard);
+
+  if (event.key === "Process") {
+    // korea
+    //let extraction =
+  } else {
+    // english
+    // if (
+    // ) {
+    // } else {
+    //   if(event.keyCode >= 65 && event.keyCode <= 90) {
+    //   }
+    //   console.log(event.key);
+    //   key = keyboard.querySelector(`.${event.key}`);
+    //   img = key.querySelector("img");
+    // }
+  }
+
+  if (event.keyCode >= 48 && event.keyCode <= 57) {
+    let extraction = `${event.code}`;
+    let value = extraction[5];
+    console.log(value);
+    let str = "Digit-" + `${value}`;
+    console.log(str);
+    key = keyboard.querySelector(`.${str}`);
+    img = key.querySelector("img");
+  } else if (
+    event.code === "ShiftLeft" ||
+    event.code === "ShiftRight" ||
+    event.code === "Minus" ||
+    event.code === "Equal" ||
+    event.code === "Space" ||
+    event.code === "BracketLeft" ||
+    event.code === "BracketRight" ||
+    event.code === "Backslash" ||
+    event.code === "Semicolon" ||
+    event.code === "Quote" ||
+    event.code === "Comma" ||
+    event.code === "Period" ||
+    event.code === "Slash"
+  ) {
+    console.log("통과");
+    key = keyboard.querySelector(`.${event.code}`);
+    img = key.querySelector("img");
+  } else {
+    console.log(event.key);
+    key = keyboard.querySelector(`.${event.code}`);
+    img = key.querySelector("img");
+  }
+
+  if (flag === 1) {
+    // img display : block
+    img.style.display = "block";
+  } else {
+    // img display : none
+    img.style.display = "none";
+  }
+};
+// keyboard effect
 
 document.addEventListener("DOMContentLoaded", () => {
   // language toggle mode variables
@@ -406,12 +606,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // text toggle mode variables
   const texttoggle = document.querySelector("#textmode > #texttoggle");
   const textObj = { value: true }; // true : sentence, false : paragraph
+  // modetoggle variables
+  const modetoggle = document.querySelector("#modetoggle");
+  const background = document.querySelector("#background");
+  const modeObj = { value: true }; // true : light, false: dark
   // repeat count variables
   const left = document.querySelector("#left");
   const right = document.querySelector("#right");
   let count = 0;
   let repeat = 5;
-  // typing word
+  // typing word variables
   const typingWord = document.querySelector("#typingspace");
   let typingObj = {};
   // compare and speed check variables
@@ -442,6 +646,10 @@ document.addEventListener("DOMContentLoaded", () => {
     "ArrowRight",
     "Enter",
     "Backspace",
+    "Home", // Home 키
+    "End", // End 키
+    "Insert", // Insert 키
+    "Delete", // Delete 키
   ];
   // accuracy and wrong word check variables
   const accuracycount = document.querySelector("#accuracycount");
@@ -457,6 +665,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const result = document.querySelector("#result");
   const maxNAvg = function (info) {};
   let resultflag = false;
+  const deleteRecord = function () {
+    for (let i = 0; i < 5; i++) {
+      recordcheck[i].querySelector("#speedtext").textContent = "";
+      recordcheck[i].querySelector("#accuracytext").textContent = "";
+    }
+  };
+  // result value setting variables
+  const maxspeed = document.querySelector("#maxspeed");
+  const sbox = document.querySelector("#sbox");
+  const abox = document.querySelector("#abox");
+  const commenttext = document.querySelector("#commenttext");
+  // help variables
+  const help = document.querySelector("#help");
+  const div = help.querySelectorAll("div");
+  let mouseObj = { value: false };
+  // key effect variables
+  const keyboard = document.querySelector(".keyboard-base");
 
   // initailizing
   typingObj = typing_word(typingWord, languageObj.value, textObj.value);
@@ -465,83 +690,184 @@ document.addEventListener("DOMContentLoaded", () => {
   languagetoggle.addEventListener("click", (event) => {
     languageObj.value = languageChange(event, languageObj);
     typingObj = typing_word(typingWord, languageObj.value, textObj.value);
+    typingspace.focus();
   });
 
   // text
   texttoggle.addEventListener("click", (event) => {
     textObj.value = textChange(event, textObj);
     typingObj = typing_word(typingWord, languageObj.value, textObj.value);
+    typingspace.focus();
   });
+
+  //mode
+  modetoggle.addEventListener("click", (event) => {
+    modeObj.value = modeChange(event, modeObj, modetoggle, background);
+    typingspace.focus();
+  });
+
+  //help
+  help.addEventListener("mouseenter", (event) => {
+    if (!mouseObj.value) mouseObj.value = helpInfn(event, help);
+    console.log(mouseObj.value);
+  });
+
+  // div.addEventListener("mouseover", (event) => {
+  //   if (!mouseObj.value) mouseObj.value = helpInfn(event, help);
+  //   console.log(mouseObj.value);
+  // });
+
+  // background.addEventListener("mouseover", (event) => {
+  //   if (!mouseObj.value) mouseObj.value = helpOutfn(event, help);
+  //   console.log(mouseObj.value);
+  // });
+
+  // background.addEventListener("mouseenter", (event) => {
+  //   helpOutfn(event, help);
+  //   mouseObj.value = false;
+  // });
+
+  help.addEventListener("mouseleave", (event) => {
+    if (mouseObj.value) mouseObj.value = helpOutfn(event, help);
+    console.log(mouseObj.value);
+  });
+
+  // div.addEventListener("mouseout", (event) => {
+  //   if (!mouseObj.value) mouseObj.value = helpOutfn(event, help);
+  //   console.log(mouseObj.value);
+  // });
 
   // repeat
   left.addEventListener("click", (event) => {
     count--;
     if (count < 0) count = 3;
     repeat = repeatChange(event, count);
+    typingspace.focus();
   });
   right.addEventListener("click", (event) => {
     count++;
     repeat = repeatChange(event, count);
+    typingspace.focus();
   });
 
-  // compare and speed check
+  // result escape
+  result.addEventListener("click", (event) => {
+    console.log("눌렸다.");
+    if (recordclear) {
+      result.style.display = "none";
+      recordclear = false;
+      deleteRecord();
+      typingspace.removeAttribute("readonly");
+      typingspace.focus();
+    }
+  });
+
+  // compare, speed check, record
   typing.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-      enter.ent = true;
-      clear = compare(event, typingObj, enter, keyObj, intervalId);
-      enter.ent = false;
-      console.log("enter");
-      console.log(clear);
+    keyboardEffect(event, keyboard, 1);
 
-      if (clear) {
-        // clear section
-        recordIndex.recidx++;
-        sc.textContent = "0";
+    if (!recordclear) {
+      if (event.key === "Enter") {
+        enter.ent = true;
+        clear = compare(event, typingObj, enter, keyObj, intervalId);
+        enter.ent = false;
+        console.log("enter");
+        console.log(clear);
+
+        if (clear) {
+          // clear section
+          recordIndex.recidx++;
+          sc.textContent = "0";
+          console.log(typingspace.value);
+          accuracycount.textContent = "100%";
+
+          // 추후 결과가 나온다면 info의 내용을 모두 지워주어야함. recidx = -1
+          console.log(recordIndex.recidx);
+          if (recordIndex.recidx == repeat - 1) {
+            // 반복 횟수 만큼 다 채웠다는 소리
+
+            // max and avg
+
+            //result process
+            resultflag = true;
+            recordclear = true;
+            console.log(result.style.display);
+            result.style.display = "block";
+            typingspace.setAttribute("readonly", true);
+          }
+
+          if (recordIndex.recidx > 4) {
+            info[recordIndex.recidx] = [
+              intervalId.speed,
+              accuracy,
+              recordIndex.recidx,
+            ];
+
+            console.log(info);
+          } else {
+            info.push([intervalId.speed, accuracy, recordIndex.recidx]);
+            console.log(info);
+          }
+
+          typingspace.value = "";
+        }
+
+        record(event, recordcheck, repeat, info, recordIndex.recidx);
+
+        if (resultflag) {
+          resultSetting(
+            event,
+            info,
+            typingObj,
+            maxspeed,
+            sbox,
+            abox,
+            commenttext
+          );
+          result.focus();
+          console.log(recordIndex.recidx);
+          recordIndex.recidx = -1;
+          info.splice(0, info.length);
+          console.log(info);
+          resultflag = false;
+        }
+
+        console.log(recordclear);
+      }
+
+      if (event.key === "Backspace") {
         console.log(typingspace.value);
-        typingspace.value = "";
-        accuracycount.textContent = "100%";
-
-        // 추후 결과가 나온다면 info의 내용을 모두 지워주어야함. recidx = -1
-        console.log(recordIndex.recidx);
-        if (recordIndex.recidx == repeat - 1) {
-          // 반복 횟수 만큼 다 채웠다는 소리
-
-          // max and avg
-
-          //result process
-          resultflag = true;
-          recordclear = true;
-          console.log(result.style.display);
-          result.style.display = "block";
+        if (typingspace.value === "") {
+          keyObj.letterKey = 0;
+          keyObj.backspaceKey = 0;
+          keyObj.sec = 0;
+          clearInterval(intervalId.id1);
+          clearInterval(intervalId.id2);
+          sc.textContent = "0";
         }
 
-        if (recordIndex.recidx > 4) {
-          info[recordIndex.recidx] = [
-            intervalId.speed,
-            accuracy,
-            recordIndex.recidx,
-          ];
-
-          console.log(info);
-        } else {
-          info.push([intervalId.speed, accuracy, recordIndex.recidx]);
-          console.log(info);
-        }
+        keyObj.backspaceKey++;
+        compare(event, typingObj, enter, keyObj, intervalId);
       }
 
-      record(event, recordcheck, repeat, info, recordIndex.recidx);
+      if (!specialKeys.includes(event.key)) {
+        keyObj.letterKey++;
 
-      if (resultflag) {
-        result.focus();
-        typingspace.removeAttribute("autofocus");
-        console.log(recordIndex.recidx);
-        recordIndex.recidx = 0;
-        info.splice(0, info.length);
-        console.log(info);
-        resultflag = false;
+        clear = compare(event, typingObj, enter, keyObj, intervalId);
+
+        accuracy = AccuracyNCheck(
+          event,
+          typingObj,
+          accuracycount,
+          lettercount,
+          ptext
+        );
       }
 
-      console.log(recordclear);
+      if (keyObj.letterKey === 1) {
+        intervalId = speedcount(enter, keyObj, speed);
+        //console.log(intervalId);
+      }
     }
 
     if (event.key === "Escape") {
@@ -549,48 +875,26 @@ document.addEventListener("DOMContentLoaded", () => {
       if (recordclear) {
         result.style.display = "none";
         recordclear = false;
-        typingspace.setAttribute("autofocus");
+        deleteRecord();
+        typingspace.removeAttribute("readonly");
+        typingspace.focus();
       }
-    }
-
-    if (event.key === "Backspace") {
-      console.log(typingspace.value);
-      if (typingspace.value === "") {
-        keyObj.letterKey = 0;
-        keyObj.backspaceKey = 0;
-        keyObj.sec = 0;
-        clearInterval(intervalId.id1);
-        clearInterval(intervalId.id2);
-        sc.textContent = "0";
-      }
-
-      keyObj.backspaceKey++;
-      compare(event, typingObj, enter, keyObj, intervalId);
-    }
-
-    if (!specialKeys.includes(event.key)) {
-      keyObj.letterKey++;
-
-      console.log(clear);
-
-      clear = compare(event, typingObj, enter, keyObj, intervalId);
-    }
-
-    if (keyObj.letterKey === 1) {
-      intervalId = speedcount(enter, keyObj, speed);
-      //console.log(intervalId);
     }
   });
 
+  typing.addEventListener("keyup", (event) => {
+    keyboardEffect(event, keyboard, 2);
+  });
+
   typing.addEventListener("input", (event) => {
-    compare(event, typingObj, enter, keyObj, intervalId);
+    //compare(event, typingObj, enter, keyObj, intervalId);
     //console.log(typingObj.choiceIndex);
-    accuracy = AccuracyNCheck(
-      event,
-      typingObj,
-      accuracycount,
-      lettercount,
-      ptext
-    );
+    // accuracy = AccuracyNCheck(
+    //   event,
+    //   typingObj,
+    //   accuracycount,
+    //   lettercount,
+    //   ptext
+    // );
   });
 });
