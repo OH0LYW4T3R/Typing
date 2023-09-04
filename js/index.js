@@ -62,13 +62,344 @@ const modeChange = (event, modeObj, modetoggle, background) => {
     modeObj.value = false;
 
     text.textContent = "DARK";
+    text.style.color = "rgb(199, 199, 199)";
     button.style.left = "65px";
+
+    background.querySelector("#clickimg").src =
+      "./icon/icons8-천연-사용자-인터페이스-(2)-50 (1).png";
+    background.querySelector("#develop > a > img").src =
+      "./icon/icons8-github의-48 (1).png";
+    background.querySelector("#comment > img").src =
+      "./icon/icons8-야후!-96(1).png";
+    const footprints = background.querySelectorAll(
+      ".keyboard-base > div > img"
+    );
+    footprints.forEach((footprint) => {
+      footprint.src = "./icon/icons8-개-발자국-64.png";
+    });
+
+    background.style.backgroundColor = "rgb(24, 24, 24)";
+    background.querySelector("#logo > h1").style.color = "rgb(199, 199, 199)";
+
+    background.querySelector("#help").style.backgroundColor = "rgb(82, 82, 82)";
+    background.querySelector("#help > #footone").style.backgroundColor =
+      "rgb(82, 82, 82)";
+    background.querySelector("#help > #foottwo").style.backgroundColor =
+      "rgb(82, 82, 82)";
+    background.querySelector("#help > #footthree").style.backgroundColor =
+      "rgb(82, 82, 82)";
+    background.querySelector("#help > #questionmark").style.color =
+      "rgb(199, 199, 199)";
+
+    const divs1 = background.querySelectorAll("#workspace > #modebox > div");
+    const imgs = background.querySelectorAll(
+      "#workspace > #modebox > div > img"
+    );
+    divs1.forEach((div) => {
+      div.style.backgroundColor = "rgb(82, 82, 82)";
+    });
+    imgs.forEach((img) => {
+      img.style.filter =
+        "invert(82%) sepia(9%) saturate(0%) hue-rotate(309deg) brightness(95%) contrast(96%)";
+    });
+
+    background.querySelector(
+      "#workspace > #modebox > #languagemode > #languagetoggle"
+    ).style.backgroundColor = "rgb(199, 199, 199)";
+    background.querySelector(
+      "#workspace > #modebox > #languagemode > #languagetoggle > #languagebutton"
+    ).style.backgroundColor = "rgb(82, 82, 82)";
+    background.querySelector(
+      "#workspace > #modebox > div > #languagetoggle > #languagemodeindicator"
+    ).style.color = "rgb(199, 199, 199)";
+
+    background.querySelector(
+      "#workspace > #modebox > #textmode > #texttoggle"
+    ).style.backgroundColor = "rgb(199, 199, 199)";
+    background.querySelector(
+      "#workspace > #modebox > #textmode > #texttoggle > #textbutton"
+    ).style.backgroundColor = "rgb(82, 82, 82)";
+    background.querySelector(
+      "#workspace > #modebox > div > #texttoggle > #textmodeindicator"
+    ).style.color = "rgb(199, 199, 199)";
+
+    background.querySelector(
+      "#workspace > #modebox > div > #settingmodeindicator"
+    ).style.color = "rgb(199, 199, 199)";
+    background.querySelector("#settingmode > #left").style.color =
+      "rgb(199, 199, 199)";
+    background.querySelector("#settingmode > #right").style.color =
+      "rgb(199, 199, 199)";
+    background.querySelector("#settingmode > #repeatcount").style.color =
+      "rgb(199, 199, 199)";
+
+    background.querySelector("#workspace > #indicator").style.backgroundColor =
+      "rgb(82, 82, 82)";
+    const spans1 = background.querySelectorAll("#indicator > div > span");
+    spans1.forEach((span) => {
+      span.style.color = "rgb(199, 199, 199)";
+    });
+    background.querySelector(
+      "#workspace > #indicator > #speed"
+    ).style.borderBottom = "1px solid rgb(24, 24, 24)";
+    background.querySelector(
+      "#workspace > #indicator > #speed"
+    ).style.borderRight = "1px solid rgb(24, 24, 24)";
+
+    background.querySelector(
+      "#workspace > #indicator > #record"
+    ).style.borderLeft = "1px solid rgb(24, 24, 24)";
+    background.querySelector("#record > #recordcheck").style.color =
+      "rgb(199, 199, 199) ";
+    const lis = background.querySelectorAll("#record > #recordcheck > li");
+    lis.forEach((li) => {
+      li.querySelector("#speedtext").style.color = "rgb(199, 199, 199)";
+      li.querySelector("#accuracytext").style.color = "rgb(199, 199, 199)";
+    });
+    // background.querySelector(
+    //   "#record > #recordcheck > li > #speedtext"
+    // ).style.color = "rgb(199, 199, 199)";
+    // background.querySelector(
+    //   "#record > #recordcheck > li > #accuracytext"
+    // ).style.color = "rgb(199, 199, 199)";
+    background.querySelector(
+      "#workspace > #indicator > #accuracy"
+    ).style.borderTop = "1px solid rgb(24, 24, 24)";
+    background.querySelector(
+      "#workspace > #indicator > #accuracy"
+    ).style.borderRight = "1px solid rgb(24, 24, 24)";
+
+    background.querySelector("#typingspace").style.backgroundColor =
+      "rgb(82, 82, 82)";
+    background.querySelector("#typingspace > input").style.color =
+      "rgb(199, 199, 199)";
+    background.querySelector("#typingspace > input").style.borderBottom =
+      "3px solid rgb(199, 199, 199)";
+    background.querySelector("#typingspace > input").style.caretColor =
+      "rgb(199, 199, 199)";
+
+    background.querySelector("#modetoggle").style.backgroundColor =
+      "rgb(82, 82, 82)";
+    background.querySelector("#button").style.backgroundColor =
+      "rgb(199, 199, 199)";
+
+    background.querySelector("#result > #click > #clicktext").style.color =
+      "rgb(65, 65, 65)";
+    background.querySelector("#resultcard").style.backgroundColor =
+      "rgb(65, 65, 65)";
+    background.querySelector("#title").style.color = "rgb(199, 199, 199)";
+    background.querySelector("#maxspeed").style.borderTop =
+      "2px solid rgb(199, 199, 199)";
+    background.querySelector("#maxspeed").style.borderBottom =
+      "2px solid rgb(199, 199, 199)";
+    background.querySelector("#maxspeed > #maxstitle").style.color =
+      "rgb(199, 199, 199)";
+    background.querySelector("#maxspeed > #maxspeedtext").style.color =
+      "rgb(199, 199, 199)";
+    background.querySelector("#saresult").style.borderBottom =
+      "2px solid rgb(199, 199, 199)";
+    background.querySelector("#saresult > #sbox > #stitle").style.color =
+      "rgb(199, 199, 199)";
+    background.querySelector("#saresult > #sbox > #sresulttext").style.color =
+      "rgb(199, 199, 199)";
+    background.querySelector("#saresult > #abox > #atitle").style.color =
+      "rgb(199, 199, 199)";
+    background.querySelector("#saresult > #abox > #aresulttext").style.color =
+      "rgb(199, 199, 199)";
+    background.querySelector("#comment > #escape").style.borderBottom =
+      "1px solid rgb(199, 199, 199)";
+
+    const keys = background.querySelectorAll(".key");
+    keys.forEach((key) => {
+      key.style.backgroundColor = "rgb(82, 82, 82)";
+      key.style.color = "rgb(199, 199, 199)";
+    });
+    const commands = background.querySelectorAll(".command");
+    const alts = background.querySelectorAll(".alt");
+    commands.forEach((command) => {
+      command.style.backgroundColor = "rgb(24, 24, 24)";
+    });
+    alts.forEach((alt) => {
+      alt.style.backgroundColor = "rgb(24, 24, 24)";
+    });
+    background.querySelector(".leftctrl").style.backgroundColor =
+      "rgb(24, 24, 24)";
+    background.querySelector(".rightctrl").style.backgroundColor =
+      "rgb(24, 24, 24)";
+
+    background.querySelector("#developer").style.color = "rgb(199, 199, 199)";
   } else {
     // dark
     modeObj.value = true;
 
     text.textContent = "LIGHT";
+    text.style.color = "rgb(158, 144, 114)";
     button.style.left = "5px";
+
+    background.querySelector("#clickimg").src =
+      "./icon/icons8-천연-사용자-인터페이스-(2)-50.png";
+    background.querySelector("#develop > a > img").src =
+      "./icon/icons8-github의-48.png";
+    background.querySelector("#comment > img").src =
+      "./icon/icons8-야후!-96.png";
+    const footprints = background.querySelectorAll(
+      ".keyboard-base > div > img"
+    );
+    footprints.forEach((footprint) => {
+      footprint.src = "./icon/icons8-고양이-발자국-48.png";
+    });
+
+    background.style.backgroundColor = "rgb(230, 223, 188)";
+    background.querySelector("#logo > h1").style.color = "rgb(116, 105, 83)";
+
+    background.querySelector("#help").style.backgroundColor =
+      "rgb(158, 144, 114)";
+    background.querySelector("#help > #footone").style.backgroundColor =
+      "rgb(158, 144, 114)";
+    background.querySelector("#help > #foottwo").style.backgroundColor =
+      "rgb(158, 144, 114)";
+    background.querySelector("#help > #footthree").style.backgroundColor =
+      "rgb(158, 144, 114)";
+    background.querySelector("#help > #questionmark").style.color =
+      "rgb(230, 223, 188)";
+
+    const divs = background.querySelectorAll("#workspace > #modebox > div");
+    const imgs = background.querySelectorAll(
+      "#workspace > #modebox > div > img"
+    );
+    divs.forEach((div) => {
+      div.style.backgroundColor = "rgb(158, 144, 114)";
+    });
+    imgs.forEach((img) => {
+      img.style.filter =
+        "invert(95%) sepia(3%) saturate(2305%) hue-rotate(7deg) brightness(95%) contrast(92%)";
+    });
+
+    background.querySelector(
+      "#workspace > #modebox > #languagemode > #languagetoggle"
+    ).style.backgroundColor = "rgb(230, 223, 188)";
+    background.querySelector(
+      "#workspace > #modebox > #languagemode > #languagetoggle > #languagebutton"
+    ).style.backgroundColor = "rgb(158, 144, 114)";
+    background.querySelector(
+      "#workspace > #modebox > div > #languagetoggle > #languagemodeindicator"
+    ).style.color = "rgb(230, 223, 188)";
+
+    background.querySelector(
+      "#workspace > #modebox > #textmode > #texttoggle"
+    ).style.backgroundColor = "rgb(230, 223, 188)";
+    background.querySelector(
+      "#workspace > #modebox > #textmode > #texttoggle > #textbutton"
+    ).style.backgroundColor = "rgb(158, 144, 114)";
+    background.querySelector(
+      "#workspace > #modebox > div > #texttoggle > #textmodeindicator"
+    ).style.color = "rgb(230, 223, 188)";
+
+    background.querySelector(
+      "#workspace > #modebox > div > #settingmodeindicator"
+    ).style.color = "rgb(230, 223, 188)";
+    background.querySelector("#settingmode > #left").style.color =
+      "rgb(230, 223, 188)";
+    background.querySelector("#settingmode > #right").style.color =
+      "rgb(230, 223, 188)";
+    background.querySelector("#settingmode > #repeatcount").style.color =
+      "rgb(230, 223, 188)";
+
+    background.querySelector("#workspace > #indicator").style.backgroundColor =
+      "rgb(158, 144, 114)";
+    const spans1 = background.querySelectorAll("#indicator > div > span");
+    spans1.forEach((span) => {
+      span.style.color = "rgb(230, 223, 188)";
+    });
+    background.querySelector(
+      "#workspace > #indicator > #speed"
+    ).style.borderBottom = "1px solid rgb(230, 223, 188)";
+    background.querySelector(
+      "#workspace > #indicator > #speed"
+    ).style.borderRight = "1px solid rgb(230, 223, 188)";
+
+    background.querySelector(
+      "#workspace > #indicator > #record"
+    ).style.borderLeft = "1px solid rgb(230, 223, 188)";
+    background.querySelector("#record > #recordcheck").style.color =
+      "1px solid rgb(230, 223, 188)";
+    const lis = background.querySelectorAll("#record > #recordcheck > li");
+    lis.forEach((li) => {
+      li.querySelector("#speedtext").style.color = "rgb(230, 223, 188)";
+      li.querySelector("#accuracytext").style.color = "rgb(230, 223, 188)";
+    });
+    // background.querySelector(
+    //   "#record > #recordcheck > li > #speedtext"
+    // ).style.color = "rgb(230, 223, 188)";
+    // background.querySelector(
+    //   "#record > #recordcheck > li > #accuracytext"
+    // ).style.color = "rgb(230, 223, 188)";
+    background.querySelector(
+      "#workspace > #indicator > #accuracy"
+    ).style.borderTop = "1px solid rgb(230, 223, 188)";
+    background.querySelector(
+      "#workspace > #indicator > #accuracy"
+    ).style.borderRight = "1px solid rgb(230, 223, 188)";
+
+    background.querySelector("#typingspace").style.backgroundColor =
+      "rgb(158, 144, 114)";
+    background.querySelector("#typingspace > input").style.color =
+      "rgb(230, 223, 188)";
+    background.querySelector("#typingspace > input").style.borderBottom =
+      "3px solid rgb(230, 223, 188)";
+    background.querySelector("#typingspace > input").style.caretColor =
+      "rgb(230, 223, 188)";
+
+    background.querySelector("#modetoggle").style.backgroundColor =
+      "rgb(158, 144, 114)";
+    background.querySelector("#button").style.backgroundColor =
+      "rgb(230, 223, 188)";
+
+    background.querySelector("#result > #click > #clicktext").style.color =
+      "rgb(116, 105, 83)";
+    background.querySelector("#resultcard").style.backgroundColor =
+      "rgb(116, 105, 83)";
+    background.querySelector("#title").style.color = "rgb(230, 223, 188)";
+    background.querySelector("#maxspeed").style.borderTop =
+      "2px solid rgb(230, 223, 188)";
+    background.querySelector("#maxspeed").style.borderBottom =
+      "2px solid rgb(230, 223, 188)";
+    background.querySelector("#maxspeed > #maxstitle").style.color =
+      "rgb(230, 223, 188)";
+    background.querySelector("#maxspeed > #maxspeedtext").style.color =
+      "rgb(230, 223, 188)";
+    background.querySelector("#saresult").style.borderBottom =
+      "2px solid rgb(230, 223, 188)";
+    background.querySelector("#saresult > #sbox > #stitle").style.color =
+      "rgb(230, 223, 188)";
+    background.querySelector("#saresult > #sbox > #sresulttext").style.color =
+      "rgb(230, 223, 188)";
+    background.querySelector("#saresult > #abox > #atitle").style.color =
+      "rgb(230, 223, 188)";
+    background.querySelector("#saresult > #abox > #aresulttext").style.color =
+      "rgb(230, 223, 188)";
+    background.querySelector("#comment > #escape").style.borderBottom =
+      "1px solid rgb(230, 223, 188)";
+
+    const keys = background.querySelectorAll(".key");
+    keys.forEach((key) => {
+      key.style.backgroundColor = "rgb(158, 144, 114)";
+      key.style.color = "rgb(230, 223, 188)";
+    });
+    const commands = background.querySelectorAll(".command");
+    const alts = background.querySelectorAll(".alt");
+    commands.forEach((command) => {
+      command.style.backgroundColor = "rgb(230, 223, 188)";
+    });
+    alts.forEach((alt) => {
+      alt.style.backgroundColor = "rgb(230, 223, 188)";
+    });
+    background.querySelector(".leftctrl").style.backgroundColor =
+      "rgb(230, 223, 188)";
+    background.querySelector(".rightctrl").style.backgroundColor =
+      "rgb(230, 223, 188)";
+
+    background.querySelector("#developer").style.color = "rgb(158, 144, 114)";
   }
 
   return modeObj.value;
@@ -467,38 +798,38 @@ const resultSetting = (
     if (avgspd > 600 && avgacr > 0) {
       commenttext.textContent = "PERPECT!!!!";
       commenttext.style.backgroundImage =
-        "linear-gradient( 45deg, rgb(250, 43, 43), rgb(104, 250, 32), rgb(38, 123, 250));";
+        "linear-gradient( 45deg, rgb(250, 43, 43), rgb(104, 250, 32), rgb(38, 123, 250))";
     } else if (400 < avgspd && avgspd <= 600 && 80 < avgacr && avgacr <= 100) {
       commenttext.textContent = "GREAT!!";
       commenttext.style.backgroundImage =
-        "linear-gradient( 45deg, rgb(248, 123, 123), rgb(143, 245, 93), rgb(98, 157, 245));";
+        "linear-gradient( 45deg, rgb(248, 123, 123), rgb(143, 245, 93), rgb(98, 157, 245))";
     } else if (200 < avgspd && avgspd <= 400 && 70 < avgacr && avgacr <= 100) {
       commenttext.textContent = "COMMON";
       commenttext.style.backgroundImage =
-        "linear-gradient( 45deg, rgb(230, 223, 188), rgb(116, 105, 83), rgb(158, 144, 114));";
+        "linear-gradient( 45deg, rgb(230, 223, 188), rgb(116, 105, 83), rgb(158, 144, 114))";
     } else {
       commenttext.textContent = "BAD...";
       commenttext.style.backgroundImage =
-        "linear-gradient( 45deg, rgb(187, 187, 187), rgb(92, 92, 92), rgb(15, 15, 15));";
+        "linear-gradient( 45deg, rgb(187, 187, 187), rgb(92, 92, 92), rgb(15, 15, 15))";
     }
   } else {
     //english
     if (avgspd > 400 && avgacr > 95) {
       commenttext.textContent = "PERPECT!!!!";
       commenttext.style.backgroundImage =
-        "linear-gradient( 45deg, rgb(250, 43, 43), rgb(104, 250, 32), rgb(38, 123, 250));";
+        "linear-gradient( 45deg, rgb(250, 43, 43), rgb(104, 250, 32), rgb(38, 123, 250))";
     } else if (250 < avgspd && avgspd <= 400 && 80 < avgacr && avgacr <= 100) {
       commenttext.textContent = "GREAT!!";
       commenttext.style.backgroundImage =
-        "linear-gradient( 45deg, rgb(248, 123, 123), rgb(143, 245, 93), rgb(98, 157, 245));";
+        "linear-gradient( 45deg, rgb(248, 123, 123), rgb(143, 245, 93), rgb(98, 157, 245))";
     } else if (150 < avgspd && avgspd <= 250 && 70 < avgacr && avgacr <= 100) {
       commenttext.textContent = "COMMON";
       commenttext.style.backgroundImage =
-        "linear-gradient( 45deg, rgb(230, 223, 188), rgb(116, 105, 83), rgb(158, 144, 114));";
+        "linear-gradient( 45deg, rgb(230, 223, 188), rgb(116, 105, 83), rgb(158, 144, 114))";
     } else {
       commenttext.textContent = "BAD...";
       commenttext.style.backgroundImage =
-        "linear-gradient( 45deg, rgb(187, 187, 187), rgb(92, 92, 92), rgb(15, 15, 15));";
+        "linear-gradient( 45deg, rgb(187, 187, 187), rgb(92, 92, 92), rgb(15, 15, 15))";
     }
   }
 
@@ -536,31 +867,11 @@ const helpOutfn = (event, help) => {
 const keyboardEffect = (event, keyboard, flag) => {
   let key;
   let img;
-  console.log(event.code, event.key);
-  console.log(keyboard);
-
-  if (event.key === "Process") {
-    // korea
-    //let extraction =
-  } else {
-    // english
-    // if (
-    // ) {
-    // } else {
-    //   if(event.keyCode >= 65 && event.keyCode <= 90) {
-    //   }
-    //   console.log(event.key);
-    //   key = keyboard.querySelector(`.${event.key}`);
-    //   img = key.querySelector("img");
-    // }
-  }
 
   if (event.keyCode >= 48 && event.keyCode <= 57) {
     let extraction = `${event.code}`;
     let value = extraction[5];
-    console.log(value);
     let str = "Digit-" + `${value}`;
-    console.log(str);
     key = keyboard.querySelector(`.${str}`);
     img = key.querySelector("img");
   } else if (
@@ -578,11 +889,9 @@ const keyboardEffect = (event, keyboard, flag) => {
     event.code === "Period" ||
     event.code === "Slash"
   ) {
-    console.log("통과");
     key = keyboard.querySelector(`.${event.code}`);
     img = key.querySelector("img");
   } else {
-    console.log(event.key);
     key = keyboard.querySelector(`.${event.code}`);
     img = key.querySelector("img");
   }
@@ -680,7 +989,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const help = document.querySelector("#help");
   const div = help.querySelectorAll("div");
   let mouseObj = { value: false };
-  // key effect variables
+  // key effect variable
   const keyboard = document.querySelector(".keyboard-base");
 
   // initailizing
@@ -702,6 +1011,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //mode
   modetoggle.addEventListener("click", (event) => {
+    console.log(background);
     modeObj.value = modeChange(event, modeObj, modetoggle, background);
     typingspace.focus();
   });
