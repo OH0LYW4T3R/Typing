@@ -1,4 +1,5 @@
 # Typing School
+### Page : https://oh0lyw4t3r.github.io/Typing/
 ---
 ## 사용 언어
 1. HTML
